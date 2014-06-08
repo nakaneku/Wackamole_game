@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/edit_message"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_message" />
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBaseline="@+id/edit_message"
+        android:layout_toRightOf="@+id/edit_message"
+        android:orientation="vertical" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:onClick="playMiniGame"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button1"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="16dp"
+        android:onClick="sendMessage"
+        android:text="@string/button_send" />
+
+</RelativeLayout>

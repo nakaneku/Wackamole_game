@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">nateTest</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">User Name</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_display_message">MyMessage</string>
+    <string name="title_activity_mini_game">MiniGame</string>
+    <string name="hitmeClicked">hitmeClicked</string>
+
+</resources>

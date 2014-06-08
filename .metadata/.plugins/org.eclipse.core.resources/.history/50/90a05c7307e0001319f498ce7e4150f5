@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBaseline="@+id/edit_message"
+        android:layout_toRightOf="@+id/edit_message"
+        android:orientation="vertical" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:onClick="playMiniGame"
+        android:text="Button" />
+
+    <EditText
+        android:id="@+id/edit_message"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Button1"
+        android:layout_marginRight="34dp"
+        android:layout_toLeftOf="@+id/Button1"
+        android:ems="10"
+        android:hint="@string/edit_message" />
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:onClick="sendMessage"
+        android:text="@string/button_send" />
+
+</RelativeLayout>

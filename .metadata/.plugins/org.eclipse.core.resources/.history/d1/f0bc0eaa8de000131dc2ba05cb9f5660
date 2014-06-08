@@ -1,0 +1,99 @@
+package com.example.natetest;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class MiniGame extends ActionBarActivity {
+	List<View> moles = new LinkedList<View>();
+	
+	private int numberClicks = 0;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_mini_game);
+
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		TextView textView = (TextView) findViewById(R.id.textView4);
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.mini_game, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	public void hitmeClicked(View view){
+		TextView textView = (TextView) findViewById(R.id.textView1);
+		numberClicks++;
+		String numClicksString = numberClicks + "";
+		textView.setText(numClicksString);
+	}
+	
+    public void moleClicked(View clickedMole){
+		numberClicks++;
+		TextView scoreBoard = (TextView) findViewById(R.id.textView2);
+		scoreBoard.setText(numberClicks + " points");
+		clickedMole.setVisibility(View.INVISIBLE);
+		moles.add(clickedMole);
+		Random rand = new Random();
+		int turnOn = rand.nextInt(moles.size());
+		moles.get(turnOn).setVisibility(View.VISIBLE);
+		MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.punch);
+		try{
+			mediaPlayer.start();
+		}catch (Exception e){
+			System.out.println("Bad stuff " + e);
+		}
+
+
+
+    }
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class PlaceholderFragment extends Fragment {
+
+		public PlaceholderFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_mini_game,
+					container, false);
+			return rootView;
+		}
+	}
+
+}
